@@ -1,0 +1,55 @@
+.text {
+    position: absolute;
+    bottom: 30%;
+    margin-left: 4rem;
+    margin-right: 55%;
+    color: white;
+}
+
+p {
+    font-size: 28px;
+}
+
+@media only screen and (max-width: 750px) {
+    p {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    p {
+        font-size: 28px;
+
+    }
+
+    .text {
+        padding: 1rem 4rem;
+        margin: 0;
+        bottom: auto;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    p {
+        font-size: 28px;
+
+    }
+
+    .text {
+        padding: 1rem;
+        margin: 0;
+        bottom: auto;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+}

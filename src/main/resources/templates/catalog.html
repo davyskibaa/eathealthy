@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/catalog.css">
+    <title>Каталог товаров</title>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <a th:href="@{/}" class="nav-logo">EatHealthy</a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a th:href="@{/catalog}" class="nav-link">Каталог товаров</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/delivery}" class="nav-link">Доставка</a>
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a  th:href="@{/login}" class="nav-link">Войти</a>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a  th:href="@{/logout}" class="nav-link">Выйти</a>
+            </li>
+        </ul>
+        <div class="burger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</header>
+<main class="main">
+    <div class="img-gallery">
+        <div class="wrap">
+            <div class="card">
+                <img src="../images/fruit.png" alt="none" style="width:100%">
+            </div>
+            <p>Фрукты, овощи и зелень</p>
+        </div>
+        <div class="wrap">
+            <div class="card">
+                <img src="../images/milk.png" alt="none" style="width:100%">
+            </div>
+            <p>Молочные продукты</p>
+        </div>
+        <div class="wrap">
+            <div class="card">
+                <img src="../images/meat.png" alt="none" style="width:100%">
+            </div>
+            <p>Мясо, птица и рыба</p>
+        </div>
+        <div class="wrap">
+            <div class="card">
+                <img src="../images/bread.png" alt="none" style="width:100%">
+            </div>
+            <p>Хлеб и выпечка</p>
+        </div>
+        <div class="wrap">
+            <div class="card">
+                <img src="../images/cake.png" alt="none" style="width:100%">
+            </div>
+            <p>Кондитерские изделия</p>
+        </div>
+        <div class="wrap">
+            <div class="card">
+                <img src="../images/dried.png" alt="none" style="width:100%">
+            </div>
+            <p>Сухофрукты и орехи</p>
+        </div>
+        <div class="wrap">
+            <div class="card">
+                <img src="../images/juice.png" alt="none" style="width:100%">
+            </div>
+            <p>Вода и соки</p>
+        </div>
+        <div class="wrap">
+            <div class="card">
+                <img src="../images/kids.png" alt="none" style="width:100%">
+            </div>
+            <p>Для детей</p>
+        </div>
+        <div class="wrap">
+            <div class="card">
+                <img src="../images/meal.png" alt="none" style="width:100%">
+            </div>
+            <p>Готовая еда</p>
+        </div>
+        <div class="wrap">
+            <div class="card">
+                <img src="../images/pet.png" alt="none" style="width:100%">
+            </div>
+            <p>Для животных</p>
+        </div>
+    </div>
+</main>
+<script src="../js/global.js"></script>
+</body>
+</html>

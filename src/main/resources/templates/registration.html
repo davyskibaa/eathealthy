@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/registration.css">
+    <title>Регистрация</title>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <a th:href="@{/}" class="nav-logo">EatHealthy</a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a th:href="@{/catalog}" class="nav-link">Каталог товаров</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/delivery}" class="nav-link">Доставка</a>
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a  th:href="@{/login}" class="nav-link">Войти</a>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a  th:href="@{/logout}" class="nav-link">Выйти</a>
+            </li>
+        </ul>
+        <div class="burger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</header>
+<main>
+    <form class="modal-content-reg" th:action="@{/registration}" method="post" th:object="${user}">
+        <div class="container">
+            <p>Регистрация</p>
+            <input type="text" placeholder="Имя" name="name" required th:field="*{firstName}">
+            <input type="text" placeholder="Фамилия" name="surname" required  th:field="*{lastName}">
+            <input type="tel" placeholder="Контактный телефон" name="phone" required  th:field="*{number}">
+            <input type="text" placeholder="Электронная почта" name="email" required  th:field="*{email}">
+            <input type="password" placeholder="Пароль" name="psw" required  th:field="*{password}">
+            <div class="check">
+                <input type="checkbox" value="none" name="check" id="squaredThree" style="margin-bottom:15px" required>
+                <label for="squaredThree"></label>
+            </div>
+            <span> Я согласен на обработку персональных данных</span>
+            <div class="clearfix">
+                <button type="submit" class="reg1-btn"><p>Зарегистрироваться</p></button>
+                <div class="log1-btn">
+                    <div class="inside-log1">
+                        <a th:href="@{/login}" type="button"><p>Уже есть аккаунт? Войти</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</main>
+<script src="../js/global.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+p, form {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+}
+
+input[type=text], input[type=password], input[type=tel] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=tel]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+button {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button > p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+a {
+    opacity: 0.9;
+}
+
+a:hover {
+    opacity: 1;
+}
+
+a > p {
+    font-size: 1.25rem;
+}
+
+.inside-reg2 > a {
+    text-decoration: underline;
+    color: white;
+}
+
+.inside-reg2 {
+    padding: 10px 20px;
+}
+
+button:hover {
+    opacity:1;
+}
+
+.reg2-btn {
+    background-color: transparent;
+    margin: 8px 0;
+}
+
+.log2-btn {
+    padding: 14px 20px;
+    background-color: rgb(192, 192, 192);
+    color: #1c1c1c;
+}
+
+.log2-btn > p {
+    color: #000000;
+}
+
+.reg2-btn, .log2-btn {
+    float: left;
+    width: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #474e5d;
+    padding-top: 60px;
+}
+
+.modal-content-log {
+    background-color: rgba(87, 83, 83, 0.9);
+    margin: auto;
+    width: 50%;
+}
+
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media screen and (max-width: 1250px) {
+    .reg2-btn, .log2-btn {
+        width: 100%;
+    }
+
+    .modal-content {
+        margin: 5% 4rem;
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .modal-content {
+        margin: 5% 0;
+    }
+}

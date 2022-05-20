@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/delivery.css">
+    <title>Доставка</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+<header class="header">
+    <nav class="nav">
+        <a th:href="@{/}" class="nav-logo">EatHealthy</a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a th:href="@{/catalog}" class="nav-link">Каталог товаров</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/delivery}" class="nav-link">Доставка</a>
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a  th:href="@{/login}" class="nav-link">Войти</a>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a  th:href="@{/logout}" class="nav-link">Выйти</a>
+            </li>
+        </ul>
+        <div class="burger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="alert-green">
+        <div th:if="${param.success}">
+            <div>Заказ успешно оформлен!</div>
+        </div>
+    </div>
+    <form class="modal-content" th:action="@{/delivery}" method="post" th:object="${delivery}">
+        <div class="container">
+            <p>Хотите сделать приятное близким или себе? Закажите подарочный набор эко-продуктов, который можно приобрести только на нашем сайте!</p>
+            <p>Заполните данную форму, и мы обязательно свяжемся с Вами для уточнения содержимого набора.</p>
+            <select class="select" name="kit" required th:field="*{kit}">
+                <option disabled value="">Выбрать подарочный набор</option>
+                <option value="Большой подарочный набор (5 кг, 8000 рублей)">Большой подарочный набор (5 кг, 8000 рублей)</option>
+                <option value="Средний подарочный набор (3 кг, 5000 рублей)">Средний подарочный набор (3 кг, 5000 рублей)</option>
+                <option value="Маленький подарочный набор (1 кг, 2000 рублей)">Маленький подарочный набор (1 кг, 2000 рублей)</option>
+            </select>
+            <div class="d-t">
+                <input type="date" placeholder="Дата доставки" name="date" required th:field="*{date}">
+                <input type="time" placeholder="Время" name="time" required th:field="*{time}">
+            </div>
+            <input type="text" placeholder="Адрес доставки" name="address" required th:field="*{address}">
+            <input type="text" placeholder="Ваши пожелания по заказу..." name="wishes" required th:field="*{wishes}">
+            <div class="clearfix">
+                <button type="submit" class="send"><p>Отправить</p></button>
+            </div>
+        </div>
+    </form>
+</main>
+<script src="../js/delivery.js"></script>
+<script src="../js/global.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Авторизация</title>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <a th:href="@{/}" class="nav-logo">EatHealthy</a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a th:href="@{/catalog}" class="nav-link">Каталог товаров</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/delivery}" class="nav-link">Доставка</a>
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a  th:href="@{/login}" class="nav-link">Войти</a>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a  th:href="@{/logout}" class="nav-link">Выйти</a>
+            </li>
+        </ul>
+        <div class="burger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="alert-red">
+        <div th:if="${param.error}">
+            <div>Неверный email или пароль!</div>
+        </div>
+        <div th:if="${param.logout}">
+            <div>Вы вышли из аккаунта!</div>
+        </div>
+    </div>
+    <form class="modal-content-log" th:action="@{/login}" method="post">
+        <div class="container">
+            <p>Авторизация</p>
+            <input id="username" type="text" placeholder="Электронная почта" name="username" required>
+            <input id="password" type="password" placeholder="Пароль" name="password" required>
+            <div class="clearfix">
+                <button type="submit" class="log2-btn"><p>Войти</p></button>
+                <div class="reg2-btn">
+                    <div class="inside-reg2">
+                        <a th:href="@{/registration}" type="button"><p>Зарегистрироваться</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+    </script>
+</main>
+<script src="../js/global.js"></script>
+</body>
+</html>
